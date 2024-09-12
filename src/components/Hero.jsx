@@ -24,10 +24,11 @@ const Hero = () => {
       <Navbar />
       <div>Username: {username}</div>
       <img
-        className="size-[40px] rounded-full"
+        className=" rounded-full"
         src={window.Telegram.WebApp?.initDataUnsafe?.user?.photo_url}
-        alt="User Photo"
+        alt="userPhoto"
       />
+      <p>{window.Telegram.WebApp?.initDataUnsafe?.user?.photo_url}</p>
     </div>
   );
 };
