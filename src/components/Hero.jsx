@@ -22,6 +22,10 @@ const Hero = () => {
     }
   }, []);
 
+  const tg = Telegram.WebApp;
+  tg.enableClosingConfirmation();
+  tg.disableClosingConfirmation();
+
   return (
     <div className="hero relative h-screen">
       <Navbar />
