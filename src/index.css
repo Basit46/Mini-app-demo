@@ -6,3 +6,6 @@
 
 @layer components {
 }
+body {
+  background-color: white;
+}
