@@ -5,23 +5,23 @@ const Hero = () => {
   const [username, setUsername] = useState("Mate"); // default fallback username
 
   useEffect(() => {
-    // Ensure the Telegram WebApp is initialized
-    if (window.Telegram.WebApp) {
+    // Ensure the Telegram WebApp is available
+    if (window.Telegram && window.Telegram.WebApp) {
+      // Notify Telegram that the app is ready
       window.Telegram.WebApp.ready();
-      try {
-        // Parse the initData for the username
-        const initData = window.Telegram.WebApp.initDataUnsafe;
-        console.log(window.Telegram.WebApp);
-        const params = new URLSearchParams(initData);
-        const usernameFromTelegram = params.get("username");
 
-        // Update the username state if available
-        if (usernameFromTelegram) {
-          setUsername(usernameFromTelegram);
-        }
-      } catch (error) {
-        console.error("Failed to parse Telegram initData: ", error);
+      // Try to get the username from initDataUnsafe
+      if (
+        window.Telegram.WebApp.initDataUnsafe &&
+        window.Telegram.WebApp.initDataUnsafe.user
+      ) {
+        const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
+        setUsername(telegramUser.username || "Mate"); // Extracting the username from the user object
+      } else {
+        console.warn("Telegram WebApp did not provide initDataUnsafe.user");
       }
+    } else {
+      console.error("Telegram WebApp not available");
     }
   }, []);
 
@@ -29,12 +29,6 @@ const Hero = () => {
     <div className="hero relative h-screen">
       <Navbar />
       <div>Username: {username}</div>
-
-      <hr />
-
-      <div>{window.Telegram.WebApp.initData.toString()}</div>
-      <div>{window.Telegram.WebApp.initData.username}</div>
-      <div>{window.Telegram.WebApp.initDataUnsafe.user.username}</div>
     </div>
   );
 };
