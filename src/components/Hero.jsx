@@ -19,16 +19,23 @@ const Hero = () => {
     }
   }, []);
 
+  const tg = window.Telegram.WebApp;
+
+  const handleClose = () => {
+    tg.close();
+  };
+
   return (
     <div className="hero relative h-screen">
       <Navbar />
       <div>Username: {username}</div>
-      <img
-        className=" rounded-full"
-        src={window.Telegram.WebApp?.initDataUnsafe?.user?.photo_url}
-        alt="userPhoto"
-      />
-      <p>{window.Telegram.WebApp?.initDataUnsafe?.user?.photo_url}</p>
+
+      <button
+        className="bg-[#ff0000] px-[20px] py-[6px] text-white"
+        onClick={handleClose}
+      >
+        Close
+      </button>
     </div>
   );
 };
