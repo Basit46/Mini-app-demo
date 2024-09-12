@@ -29,6 +29,11 @@ const Hero = () => {
     <div className="hero relative h-screen">
       <Navbar />
       <div>Username: {username}</div>
+
+      <hr />
+
+      <div>{window.Telegram.WebApp.initData.toString()}</div>
+      <div>{window.Telegram.WebApp.initDataUnsafe.toString()}</div>
     </div>
   );
 };
