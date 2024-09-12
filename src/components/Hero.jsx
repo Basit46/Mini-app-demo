@@ -34,7 +34,7 @@ const Hero = () => {
 
       <div>{window.Telegram.WebApp.initData.toString()}</div>
       <div>{window.Telegram.WebApp.initData.username}</div>
-      <div>{window.Telegram.WebApp.initDataUnsafe.toString()}</div>
+      <div>{window.Telegram.WebApp.initDataUnsafe.username}</div>
     </div>
   );
 };
