@@ -8,23 +8,16 @@ const Hero = () => {
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.ready();
 
-      if (
-        window.Telegram.WebApp.initDataUnsafe &&
-        window.Telegram.WebApp.initDataUnsafe.user
-      ) {
+      if (window.Telegram.WebApp.initDataUnsafe.user) {
         const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
         setUsername(telegramUser.username || "Mate");
       } else {
-        console.error("Telegram WebApp did not provide initDataUnsafe.user");
+        setUsername("Mate");
       }
     } else {
       console.error("Telegram WebApp not available");
     }
   }, []);
-
-  const tg = Telegram.WebApp;
-  tg.enableClosingConfirmation();
-  tg.disableClosingConfirmation();
 
   return (
     <div className="hero relative h-screen">
