@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Cherry+Bomb+One&family=Cherry+Cream+Soda&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+}
