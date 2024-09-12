@@ -23,6 +23,11 @@ const Hero = () => {
     <div className="hero relative h-screen">
       <Navbar />
       <div>Username: {username}</div>
+      <img
+        className="size-[40px] rounded-full"
+        src={window.Telegram.WebApp?.initDataUnsafe?.user?.photo_url}
+        alt="User Photo"
+      />
     </div>
   );
 };
