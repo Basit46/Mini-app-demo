@@ -10,7 +10,8 @@ const Hero = () => {
       window.Telegram.WebApp.ready();
       try {
         // Parse the initData for the username
-        const initData = window.Telegram.WebApp.initData;
+        const initData = window.Telegram.WebApp.initDataUnsafe;
+        console.log(window.Telegram.WebApp);
         const params = new URLSearchParams(initData);
         const usernameFromTelegram = params.get("username");
 
