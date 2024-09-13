@@ -9,3 +9,28 @@
 body {
   background-color: white;
 }
+.card-container {
+  perspective: 10000px;
+}
+.cat {
+  transform-style: preserve-3d;
+  transform-origin: center;
+}
+.cat:active {
+  transform: rotateY(-20deg);
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 2s linear forwards;
+}

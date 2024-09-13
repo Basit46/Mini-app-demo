@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero relative h-screen">
+    <div className="hero relative">
       <Navbar />
       <div>Username: {username}</div>
 
